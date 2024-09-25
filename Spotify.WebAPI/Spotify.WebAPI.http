@@ -1,0 +1,122 @@
+# ------------------- GROUP REQUESTS -------------------
+
+# Get all groups
+GET https://localhost:5001/api/groups
+
+# Get a group by ID
+GET https://localhost:5001/api/groups/1
+
+# Add a new group
+POST https://localhost:5001/api/groups
+Content-Type: application/json
+
+{
+  "name": "New Group",
+  "description": "A new music group"
+}
+
+# Update a group
+PUT https://localhost:5001/api/groups/1
+Content-Type: application/json
+
+{
+  "name": "Updated Group",
+  "description": "Updated description of the group"
+}
+
+# Delete a group
+DELETE https://localhost:5001/api/groups/1
+
+
+# ------------------- ALBUM REQUESTS -------------------
+
+# Get all albums
+GET https://localhost:5001/api/albums
+
+# Get an album by ID
+GET https://localhost:5001/api/albums/1
+
+# Add a new album
+POST https://localhost:5001/api/albums
+Content-Type: application/json
+
+{
+  "title": "New Album",
+  "releaseDate": "2023-09-01",
+  "groupId": 1
+}
+
+# Update an album
+PUT https://localhost:5001/api/albums/1
+Content-Type: application/json
+
+{
+  "title": "Updated Album Title",
+  "releaseDate": "2023-09-01",
+  "groupId": 1
+}
+
+# Delete an album
+DELETE https://localhost:5001/api/albums/1
+
+
+# ------------------- SONG REQUESTS -------------------
+
+# Get all songs
+GET https://localhost:5001/api/songs
+
+# Get a song by ID
+GET https://localhost:5001/api/songs/1
+
+# Add a new song
+POST https://localhost:5001/api/songs
+Content-Type: application/json
+
+{
+  "title": "New Song",
+  "duration": "03:45",
+  "albumId": 1,
+  "genreId": 1
+}
+
+# Update a song
+PUT https://localhost:5001/api/songs/1
+Content-Type: application/json
+
+{
+  "title": "Updated Song Title",
+  "duration": "04:00",
+  "albumId": 1,
+  "genreId": 1
+}
+
+# Delete a song
+DELETE https://localhost:5001/api/songs/1
+
+
+# ------------------- GENRE REQUESTS -------------------
+
+# Get all genres
+GET https://localhost:5001/api/genres
+
+# Get a genre by ID
+GET https://localhost:5001/api/genres/1
+
+# Add a new genre
+POST https://localhost:5001/api/genres
+Content-Type: application/json
+
+{
+  "name": "New Genre"
+}
+
+# Update a genre
+PUT https://localhost:5001/api/genres/1
+Content-Type: application/json
+
+{
+  "name": "Updated Genre Name"
+}
+
+# Delete a genre
+DELETE https://localhost:5001/api/genres/1
