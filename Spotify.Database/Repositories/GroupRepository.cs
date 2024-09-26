@@ -48,9 +48,7 @@ namespace Spotify.Database.Repositories
             .SetProperty(group => group.Title, groupNew.Title)
             .SetProperty(group => group.UrlImage, groupNew.UrlImage)
             .SetProperty(group => group.Description, groupNew.Description)
-            .SetProperty(group => group.FoundationDate, groupNew.FoundationDate)
-            .SetProperty(group => group.Albums, groupNew.Albums)
-            .SetProperty(group => group.Genres, groupNew.Genres));
+            .SetProperty(group => group.FoundationDate, groupNew.FoundationDate));
         }
 
         public async Task<List<Group>> GetGroupsByIdsAsync(List<int> groupIds)

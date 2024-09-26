@@ -115,15 +115,21 @@ namespace Spotify.WebAPI.Controllers
                 Albums = new List<Album>()
             };
 
-            var genres = await genreRepository.GetGenresByIdsAsync(genreIds);
-            if(genres.Count != 0)
+            if (genreIds != null)
             {
-                group.Genres.AddRange(genres);
+                var genres = await genreRepository.GetGenresByIdsAsync(genreIds);
+                if (genres.Count != 0)
+                {
+                    group.Genres.AddRange(genres);
+                }
             }
-            var albums = await albumRepository.GetAlbumsByIdsAsync(albumIds);
-            if(albums.Count != 0)
+            if (albumIds != null)
             {
-                group.Albums.AddRange(albums);
+                var albums = await albumRepository.GetAlbumsByIdsAsync(albumIds);
+                if (albums.Count != 0)
+                {
+                    group.Albums.AddRange(albums);
+                }
             }
             await groupRepository.UpdateAsync(id, group);
             return Ok();

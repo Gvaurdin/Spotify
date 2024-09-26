@@ -57,9 +57,7 @@ namespace Spotify.Database.Repositories
             .ExecuteUpdateAsync(s => s
             .SetProperty(album => album.Title, albumNew.Title)
             .SetProperty(album => album.Description, albumNew.Description)
-            .SetProperty(album => album.ReleaseDate, albumNew.ReleaseDate)
-            .SetProperty(album => album.Groups, albumNew.Groups)
-            .SetProperty(album => album.Songs, albumNew.Songs));
+            .SetProperty(album => album.ReleaseDate, albumNew.ReleaseDate));
         }
     }
 }

@@ -1,12 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Spotify.Database.Entities;
+using Spotify.Application.Interfaces;
+using Spotify.Domain.Entities;
+using Spotify.Persistense.EntityTypeConfiguration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spotify.Database.Data
+namespace Spotify.Persistense
 {
     public class SpotifyDatabaseContext(DbContextOptions<SpotifyDatabaseContext> options) : DbContext(options)
     {
@@ -18,19 +20,7 @@ namespace Spotify.Database.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<Album>()
-                .Property(a => a.Id)
-                .ValueGeneratedOnAdd();
-            modelBuilder.Entity<Song>()
-                .Property(s => s.Id)
-                .ValueGeneratedOnAdd();
-            modelBuilder.Entity<Group>()
-                .Property(g => g.Id)
-                .ValueGeneratedOnAdd();
-            modelBuilder.Entity<Genre>()
-                .Property(gr => gr.Id)
-                .ValueGeneratedOnAdd();
+            modelBuilder.ApplyConfiguration(new GroupConfigiration());
         }
     }
 }

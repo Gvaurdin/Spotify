@@ -49,8 +49,7 @@ namespace Spotify.Database.Repositories
             await spotifyDatabaseContext.Songs.Where(song => song.Id == id)
             .ExecuteUpdateAsync(s => s
             .SetProperty(song => song.Title, songNew.Title)
-            .SetProperty(song => song.Desciption, songNew.Desciption)
-            .SetProperty(song => song.Albums, songNew.Albums));
+            .SetProperty(song => song.Desciption, songNew.Desciption));
         }
 
         public async Task<List<Song>> GetSongsByIdsAsync(List<int> songIds)

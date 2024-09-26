@@ -45,8 +45,7 @@ namespace Spotify.Database.Repositories
         {
             await spotifyDatabaseContext.Genres.Where(genre => genre.Id == id)
             .ExecuteUpdateAsync(s => s
-            .SetProperty(genre => genre.Title, genreNew.Title)
-            .SetProperty(genre => genre.Groups, genreNew.Groups));
+            .SetProperty(genre => genre.Title, genreNew.Title));
         }
         public async Task<List<Genre>> GetGenresByIdsAsync(List<int> genreIds)
         {
