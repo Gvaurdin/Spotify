@@ -11,10 +11,10 @@ namespace Spotify.Persistense.Repositories.RepositoriesSong
 {
     public class RepositorySongCRUD(SpotifyDatabaseContext spotifyDatabaseContext) : IRepositorySongCRUD
     {
-        public async Task AddAsync(Song song)
+        public async Task AddAsync(Song song, CancellationToken cancellationToken)
         {
-            await spotifyDatabaseContext.AddAsync(song);
-            await spotifyDatabaseContext.SaveChangesAsync();
+            await spotifyDatabaseContext.AddAsync(song, cancellationToken);
+            await spotifyDatabaseContext.SaveChangesAsync(cancellationToken);
         }
         public async Task<bool> ExistsByIdAsync(int id)
         {
@@ -30,19 +30,19 @@ namespace Spotify.Persistense.Repositories.RepositoriesSong
                 .Include(song => song.Albums)
                 .ToListAsync();
         }
-        public async Task<Song> GetByIdAsync(int id) =>
-            await spotifyDatabaseContext.Songs.SingleAsync(song => song.Id == id);
-        public async Task RemoveAsync(int id)
+        public async Task<Song> GetByIdAsync(int id,CancellationToken cancellationToken) =>
+            await spotifyDatabaseContext.Songs.SingleAsync(song => song.Id == id, cancellationToken);
+        public async Task RemoveAsync(int id, CancellationToken cancellationToken)
         {
-            await spotifyDatabaseContext.Songs.Where(song => song.Id == id).ExecuteDeleteAsync();
-            await spotifyDatabaseContext.SaveChangesAsync();
+            await spotifyDatabaseContext.Songs.Where(song => song.Id == id).ExecuteDeleteAsync(cancellationToken);
+            await spotifyDatabaseContext.SaveChangesAsync(cancellationToken);
         }
-        public async Task UpdateAsync(int id, Song songNew)
+        public async Task UpdateAsync(int id, Song songNew,CancellationToken cancellationToken)
         {
             await spotifyDatabaseContext.Songs.Where(song => song.Id == id)
             .ExecuteUpdateAsync(s => s
             .SetProperty(song => song.Title, songNew.Title)
-            .SetProperty(song => song.Desciption, songNew.Desciption));
+            .SetProperty(song => song.Description, songNew.Description), cancellationToken);
         }
         public async Task<List<Song>> GetSongsByIdsAsync(List<int> songIds)
         {

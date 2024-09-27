@@ -17,11 +17,4 @@
     <ProjectReference Include="..\Spotify.Domain\Spotify.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\Albums\Commands\" />
-    <Folder Include="Models\Albums\Queries\" />
-    <Folder Include="Models\Songs\Commands\" />
-    <Folder Include="Models\Songs\Queries\" />
-  </ItemGroup>
-
 </Project>

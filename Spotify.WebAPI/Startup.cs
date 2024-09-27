@@ -5,6 +5,9 @@ using Spotify.Database.Repositories.Interfaces;
 using Spotify.Persistense.DIContainer;
 using System.Reflection;
 using Spotify.Application.Repositories.RepositoriesGroup;
+using Spotify.Application.Repositories.RepositoriesGenre;
+using Spotify.Application.Repositories.RepositoriesAlbum;
+using Spotify.Application.Repositories.RepositoriesSong;
 
 namespace Spotify.WebAPI
 {
@@ -16,6 +19,9 @@ namespace Spotify.WebAPI
             {
                 config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));
                 config.AddProfile(new AssemblyMappingProfile(typeof(IRepositoryGroupCRUD).Assembly));
+                config.AddProfile(new AssemblyMappingProfile(typeof(IRepositoryGenreCRUD).Assembly));
+                config.AddProfile(new AssemblyMappingProfile(typeof(IRepositoryAlbumCRUD).Assembly));
+                config.AddProfile(new AssemblyMappingProfile(typeof(IRepositorySongCRUD).Assembly));
             });
 
             services.AddApplication();

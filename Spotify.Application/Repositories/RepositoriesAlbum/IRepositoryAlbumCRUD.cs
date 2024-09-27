@@ -9,13 +9,13 @@ namespace Spotify.Application.Repositories.RepositoriesAlbum
 {
     public interface IRepositoryAlbumCRUD
     {
-        Task AddAsync(Album album);
+        Task AddAsync(Album album, CancellationToken cancellationToken);
         Task<bool> ExistsByIdAsync(int id);
         Task<bool> ExistsByTitleAsync(string title);
         Task<List<Album>> GetAllAsync();
-        Task<Album> GetByIdAsync(int id);
-        Task RemoveAsync(int id);
-        Task UpdateAsync(int id, Album albumNew);
+        Task<Album> GetByIdAsync(int id, CancellationToken cancellationToken);
+        Task RemoveAsync(int id, CancellationToken cancellationToken);
+        Task UpdateAsync(int id, Album albumNew, CancellationToken cancellationToken);
         Task<List<Album>> GetAlbumsByIdsAsync(List<int> albumIds);
     }
 }

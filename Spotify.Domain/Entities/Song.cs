@@ -13,7 +13,7 @@ namespace Spotify.Domain.Entities
     {
         public int Id { get; set; }
         public required string Title { get; set; }
-        public string? Desciption { get; set; }
+        public string? Description { get; set; }
         public List<Album> Albums { get; set; } = new List<Album>();
     }
 }

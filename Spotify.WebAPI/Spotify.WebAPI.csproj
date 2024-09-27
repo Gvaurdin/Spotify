@@ -23,4 +23,8 @@
     <ProjectReference Include="..\Spotify.Persistense\Spotify.Persistense.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Filteres\" />
+  </ItemGroup>
+
 </Project>

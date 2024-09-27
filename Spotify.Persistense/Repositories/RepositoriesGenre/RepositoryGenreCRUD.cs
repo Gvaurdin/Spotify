@@ -11,10 +11,10 @@ namespace Spotify.Persistense.Repositories.RepositoriesGenre
 {
     public class RepositoryGenreCRUD(SpotifyDatabaseContext spotifyDatabaseContext): IRepositoryGenreCRUD
     {
-        public async Task AddAsync(Genre genre)
+        public async Task AddAsync(Genre genre, CancellationToken cancellationToken)
         {
-            await spotifyDatabaseContext.AddAsync(genre);
-            await spotifyDatabaseContext.SaveChangesAsync();
+            await spotifyDatabaseContext.AddAsync(genre, cancellationToken);
+            await spotifyDatabaseContext.SaveChangesAsync(cancellationToken);
         }
         public async Task<bool> ExistsByIdAsync(int id)
         {
@@ -28,19 +28,18 @@ namespace Spotify.Persistense.Repositories.RepositoriesGenre
             await spotifyDatabaseContext.Genres
             .Include(genre => genre.Groups)
             .ToListAsync();
-        public async Task<Genre> GetByIdAsync(int id) =>
-            await spotifyDatabaseContext.Genres.SingleAsync(genre => genre.Id == id);
-        public async Task RemoveAsync(int id)
+        public async Task<Genre> GetByIdAsync(int id, CancellationToken cancellationToken) =>
+            await spotifyDatabaseContext.Genres.SingleAsync(genre => genre.Id == id, cancellationToken);
+        public async Task RemoveAsync(int id, CancellationToken cancellationToken)
         {
-            await spotifyDatabaseContext.Genres.Where(genre => genre.Id == id).ExecuteDeleteAsync();
-            await spotifyDatabaseContext.SaveChangesAsync();
+            await spotifyDatabaseContext.Genres.Where(genre => genre.Id == id).ExecuteDeleteAsync(cancellationToken);
+            await spotifyDatabaseContext.SaveChangesAsync(cancellationToken);
         }
-        public async Task UpdateAsync(int id, Genre genreNew)
+        public async Task UpdateAsync(int id, Genre genreNew, CancellationToken cancellationToken)
         {
             await spotifyDatabaseContext.Genres.Where(genre => genre.Id == id)
             .ExecuteUpdateAsync(s => s
-            .SetProperty(genre => genre.Title, genreNew.Title)
-            .SetProperty(genre => genre.Groups, genreNew.Groups));
+            .SetProperty(genre => genre.Title, genreNew.Title), cancellationToken);
         }
         public async Task<List<Genre>> GetGenresByIdsAsync(List<int> genreIds)
         {

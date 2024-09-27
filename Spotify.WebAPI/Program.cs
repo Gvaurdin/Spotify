@@ -3,7 +3,6 @@ using Spotify.Database.Data;
 using Spotify.Database.Repositories;
 using Spotify.Database.Repositories.Interfaces;
 using Spotify.WebAPI;
-using Spotify.WebAPI.Filteres;
 
 var host = CreateHostBuilder(args).Build();
 host.Run();

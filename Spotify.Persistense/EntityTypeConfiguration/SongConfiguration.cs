@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace Spotify.Persistense.EntityTypeConfiguration
 {
-    public class GroupConfigiration : IEntityTypeConfiguration<Group>
+    public class SongConfiguration: IEntityTypeConfiguration<Song>
     {
-        public void Configure(EntityTypeBuilder<Group> builder)
+        public void Configure(EntityTypeBuilder<Song> builder)
         {
-            builder.HasKey(group => group.Id);
-            builder.HasIndex(group => group.Id).IsUnique();
-            builder.Property(group => group.Title).HasMaxLength(100);
+            builder.HasKey(song => song.Id);
+            builder.HasIndex(song => song.Id).IsUnique();
+            builder.Property(song => song.Title).HasMaxLength(100);
         }
     }
 }

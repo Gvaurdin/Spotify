@@ -9,13 +9,13 @@ namespace Spotify.Application.Repositories.RepositoriesGenre
 {
     public interface IRepositoryGenreCRUD
     {
-        Task AddAsync(Genre genre);
+        Task AddAsync(Genre genre, CancellationToken cancellationToken);
         Task<bool> ExistsByIdAsync(int id);
         Task<bool> ExistsByTitleAsync(string title);
         Task<List<Genre>> GetAllAsync();
-        Task<Genre> GetByIdAsync(int id);
-        Task RemoveAsync(int id);
-        Task UpdateAsync(int id, Genre genreNew);
+        Task<Genre> GetByIdAsync(int id, CancellationToken cancellationToken);
+        Task RemoveAsync(int id, CancellationToken cancellationToken);
+        Task UpdateAsync(int id, Genre genreNew, CancellationToken cancellationToken);
         Task<List<Genre>> GetGenresByIdsAsync(List<int> genreIds);
     }
 }

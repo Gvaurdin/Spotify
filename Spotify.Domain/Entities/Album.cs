@@ -11,7 +11,7 @@ namespace Spotify.Domain.Entities
         public int Id { get; set; }
         public required string Title { get; set; }
         public string? Description { get; set; }
-        public required DateOnly ReleaseDate { get; set; }
+        public DateOnly? ReleaseDate { get; set; }
         public List<Group> Groups { get; set; } = new List<Group>();
         public List<Song> Songs { get; set; } = new List<Song>();
     }
