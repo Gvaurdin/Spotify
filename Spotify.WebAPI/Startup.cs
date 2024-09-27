@@ -8,6 +8,7 @@ using Spotify.Application.Repositories.RepositoriesGroup;
 using Spotify.Application.Repositories.RepositoriesGenre;
 using Spotify.Application.Repositories.RepositoriesAlbum;
 using Spotify.Application.Repositories.RepositoriesSong;
+using Spotify.WebAPI.Middlewares;
 
 namespace Spotify.WebAPI
 {
@@ -48,7 +49,8 @@ namespace Spotify.WebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            //app.UseMiddleware<CustomExceptionHandlerMiddleware>();
+            app.UseCustomExceptionMiddleware();
             app.UseRouting();
             app.UseHttpsRedirection();
             app.UseSwagger();
