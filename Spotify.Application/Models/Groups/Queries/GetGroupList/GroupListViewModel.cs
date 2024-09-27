@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Spotify.Application.Groups.Queries.GetGroupList
+namespace Spotify.Application.Models.Groups.Queries.GetGroupList
 {
     public class GroupListViewModel
     {

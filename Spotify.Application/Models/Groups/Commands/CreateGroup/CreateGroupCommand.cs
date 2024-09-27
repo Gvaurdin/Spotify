@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spotify.Application.Groups.Commands.CreateGroup
+namespace Spotify.Application.Models.Groups.Commands.CreateGroup
 {
     public class CreateGroupCommand : IRequest<int>
     {

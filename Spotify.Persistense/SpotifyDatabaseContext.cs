@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Spotify.Application.Interfaces;
 using Spotify.Domain.Entities;
 using Spotify.Persistense.EntityTypeConfiguration;
 using System;

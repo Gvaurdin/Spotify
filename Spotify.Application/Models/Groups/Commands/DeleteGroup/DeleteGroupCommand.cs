@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spotify.Application.Groups.Queries.GetGroupDetails
+namespace Spotify.Application.Models.Groups.Commands.DeleteGroup
 {
-    public class GetGroupDetailsQuery : IRequest<GroupDetailsViewModel>
+    public class DeleteGroupCommand : IRequest
     {
         public int Id { get; set; }
 

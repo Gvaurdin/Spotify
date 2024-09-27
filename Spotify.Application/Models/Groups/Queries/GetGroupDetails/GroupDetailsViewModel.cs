@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spotify.Application.Groups.Queries.GetGroupDetails
+namespace Spotify.Application.Models.Groups.Queries.GetGroupDetails
 {
     public class GroupDetailsViewModel : IMapWith<Group>
     {
@@ -18,7 +18,7 @@ namespace Spotify.Application.Groups.Queries.GetGroupDetails
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Group, GroupDetailsViewModel>()
-                .ForMember(groupVM => groupVM.Id, opt => opt.MapFrom(group => group.Id))
+                //.ForMember(groupVM => groupVM.Id, opt => opt.MapFrom(group => group.Id))
                 .ForMember(groupVM => groupVM.Title, opt => opt.MapFrom(group => group.Title))
                 .ForMember(groupVM => groupVM.Description, opt => opt.MapFrom(group => group.Description));
         }

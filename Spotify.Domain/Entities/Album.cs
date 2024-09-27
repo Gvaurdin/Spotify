@@ -16,3 +16,7 @@ namespace Spotify.Domain.Entities
         public List<Song> Songs { get; set; } = new List<Song>();
     }
 }
+
+
+
+

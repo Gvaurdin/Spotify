@@ -1,5 +1,5 @@
-﻿using Spotify.Application.Groups.Queries.GetGroupDetails;
-using Spotify.Application.Groups.Queries.GetGroupList;
+﻿using Spotify.Application.Models.Groups.Queries.GetGroupDetails;
+using Spotify.Application.Models.Groups.Queries.GetGroupList;
 using System;
 using System.Collections.Generic;
 using System.Linq;

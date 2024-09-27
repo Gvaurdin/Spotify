@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.8">
@@ -17,7 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Spotify.Application\Spotify.Application.csproj" />
     <ProjectReference Include="..\Spotify.Database\Spotify.Database.csproj" />
+    <ProjectReference Include="..\Spotify.Persistense\Spotify.Persistense.csproj" />
   </ItemGroup>
 
 </Project>
