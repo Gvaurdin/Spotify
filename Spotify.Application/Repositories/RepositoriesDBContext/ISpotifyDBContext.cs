@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spotify.Application.Interfaces
+namespace Spotify.Application.Repositories.RepositoriesDBContext
 {
     public interface ISpotifyDBContext
     {

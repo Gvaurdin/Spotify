@@ -1,15 +1,15 @@
-﻿using Spotify.Database.Entities;
+﻿using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spotify.Database.DTO
+namespace Spotify.Application.Groups.Commands.CreateGroup
 {
-    public class SongDTO
+    public class CreateGroupCommand : IRequest<int>
     {
         public required string Title { get; set; }
-        public string? Desciption { get; set; }
+        public string? Description { get; set; }
     }
 }
